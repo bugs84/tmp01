@@ -1,0 +1,5 @@
+syntax: glob
+ZdendaSoftwareDesign/task3-tree-actions/.gradle/
+ZdendaSoftwareDesign/task3-tree-actions/.idea/compiler.xml
+ZdendaSoftwareDesign/task3-tree-actions/.idea/
+ZdendaSoftwareDesign/task3-tree-actions/build/
