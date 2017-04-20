@@ -1,3 +1,5 @@
+package cz.vondr.workshop.design.tree
+
 class Main {
     private void start() {
         println "Hello"
