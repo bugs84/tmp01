@@ -1,4 +1,4 @@
-Context
-
 https://d1x-workshops.gitlab.io/software-development/software-design.html
-ukol 3
+task 3
+
+Can be run by Main class (file Main.groovy)

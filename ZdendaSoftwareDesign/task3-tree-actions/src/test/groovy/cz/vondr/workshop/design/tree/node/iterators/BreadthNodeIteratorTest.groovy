@@ -6,19 +6,19 @@ import spock.lang.Specification
 
 import static cz.vondr.workshop.design.tree.node.NodeValue.val
 
-class BreathNodeIteratorTest extends Specification {
+class BreadthNodeIteratorTest extends Specification {
     def "basic iterator test"() {
         given:
         Node tree = new TreeBuilder().buildTreeFromString("1 2 3 4 5 6")
 
         when:
-        Iterator<Node> breathIterator = new BreathNodeIterator(tree)
+        Iterator<Node> iterator = new BreadthNodeIterator(tree)
 
         then:
         (1..6).each {
-            assert breathIterator.hasNext(), "Test failed - next element was expteted. At number '$it'"
-            assert val(it) == breathIterator.next().value
+            assert iterator.hasNext(), "Test failed - next element was expteted. At number '$it'"
+            assert val(it) == iterator.next().value
         }
-        !breathIterator.hasNext()
+        !iterator.hasNext()
     }
 }

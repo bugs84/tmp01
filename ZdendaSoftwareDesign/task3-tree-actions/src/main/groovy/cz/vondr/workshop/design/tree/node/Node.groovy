@@ -71,6 +71,7 @@ class BinaryNode implements Node {
             result << node.value << ' '
             queue.addAll node.children
         }
+        result.length = result.length() - 1;
         result.toString()
     }
 

@@ -2,10 +2,10 @@ package cz.vondr.workshop.design.tree.node.iterators
 
 import cz.vondr.workshop.design.tree.node.Node
 
-class BreathNodeIterator implements Iterator<Node> {
+class BreadthNodeIterator implements Iterator<Node> {
     Queue<Node> nodeQueue = [] as Queue
 
-    BreathNodeIterator(Node node) {
+    BreadthNodeIterator(Node node) {
         nodeQueue.add(node)
     }
 

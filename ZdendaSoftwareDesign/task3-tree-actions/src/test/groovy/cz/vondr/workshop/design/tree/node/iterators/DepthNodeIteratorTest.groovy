@@ -12,13 +12,13 @@ class DepthNodeIteratorTest extends Specification {
         Node tree = new TreeBuilder().buildTreeFromString("1 2 5 3 4 6")
 
         when:
-        Iterator<Node> breathIterator = new DepthNodeIterator(tree)
+        Iterator<Node> iterator = new DepthNodeIterator(tree)
 
         then:
         (1..6).each {
-            assert breathIterator.hasNext(), "Test failed - next element was expteted. At number '$it'"
-            assert val(it) == breathIterator.next().value
+            assert iterator.hasNext(), "Test failed - next element was expteted. At number '$it'"
+            assert val(it) == iterator.next().value
         }
-        !breathIterator.hasNext()
+        !iterator.hasNext()
     }
 }
