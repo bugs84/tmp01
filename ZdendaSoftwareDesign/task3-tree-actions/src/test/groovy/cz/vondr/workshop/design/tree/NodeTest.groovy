@@ -2,33 +2,44 @@ package cz.vondr.workshop.design.tree
 
 import spock.lang.Specification
 
+import static cz.vondr.workshop.design.tree.NodeValue.val
+
 class NodeTest extends Specification {
 
     def "BinaryNode default constructor create empty children"() {
         when:
-        def node = new BinaryNode(5)
+        def node = new BinaryNode(val(5))
 
         then:
-        node.value == 5
+        node.value == val(5)
         !node.left.isPresent()
         !node.right.isPresent()
 
     }
 
-    def "Node iterator works for BinaryNode"() {
+    def "Node return all children works for BinaryNode"() {
         given:
-        Node node = new BinaryNode(0, new BinaryNode(8), new BinaryNode(9))
+        Node node = new BinaryNode(val(0), new BinaryNode(val(8)), new BinaryNode(val(9)))
 
         when:
-        def iterator = node.iterator()
+        List<Node> children = node.children
 
         then:
-        iterator.hasNext()
-        iterator.next().value == 8
-        iterator.hasNext()
-        iterator.next().value == 9
-        !iterator.hasNext()
+        children.size() == 2
+        children[0].value == val(8)
+        children[1].value == val(9)
+    }
 
+    def "Node with one childen returns only one child"() {
+        given:
+        Node node = new BinaryNode(val(0), new BinaryNode(val(8)))
+
+        when:
+        List<Node> children = node.children
+
+        then:
+        children.size() == 1
+        children[0].value == val(8)
     }
 
 
