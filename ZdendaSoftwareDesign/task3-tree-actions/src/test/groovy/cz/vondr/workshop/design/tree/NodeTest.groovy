@@ -1,8 +1,10 @@
 package cz.vondr.workshop.design.tree
 
+import cz.vondr.workshop.design.tree.node.BinaryNode
+import cz.vondr.workshop.design.tree.node.Node
 import spock.lang.Specification
 
-import static cz.vondr.workshop.design.tree.NodeValue.val
+import static cz.vondr.workshop.design.tree.node.NodeValue.val
 
 class NodeTest extends Specification {
 

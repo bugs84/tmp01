@@ -1,4 +1,4 @@
-package cz.vondr.workshop.design.tree
+package cz.vondr.workshop.design.tree.node
 
 import groovy.transform.EqualsAndHashCode
 
@@ -69,7 +69,7 @@ class BinaryNode implements Node {
         while (!queue.isEmpty()) {
             def node = queue.poll()
             result << node.value << ' '
-            queue.addAll(node.children)
+            queue.addAll node.children
         }
         result.toString()
     }

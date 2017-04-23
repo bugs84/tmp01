@@ -1,6 +1,9 @@
 package cz.vondr.workshop.design.tree
 
-import static cz.vondr.workshop.design.tree.NodeValue.val
+import cz.vondr.workshop.design.tree.node.BinaryNode
+import cz.vondr.workshop.design.tree.node.Node
+
+import static cz.vondr.workshop.design.tree.node.NodeValue.val
 
 class TreeBuilder {
 
