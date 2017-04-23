@@ -5,7 +5,7 @@ import cz.vondr.workshop.design.tree.node.Node
 
 class PrintAction implements Action {
 
-    Iterator<Node> nodeIterator
+    private Iterator<Node> nodeIterator
 
     PrintAction(Iterator<Node> nodeIterator) {
         this.nodeIterator = nodeIterator
