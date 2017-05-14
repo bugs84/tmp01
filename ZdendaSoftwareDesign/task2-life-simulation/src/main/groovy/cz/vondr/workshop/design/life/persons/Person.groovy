@@ -6,7 +6,7 @@ import groovy.transform.ToString
 
 @EqualsAndHashCode
 @ToString
-class Person {
+abstract class Person {
     String name
     Gender gender
 
