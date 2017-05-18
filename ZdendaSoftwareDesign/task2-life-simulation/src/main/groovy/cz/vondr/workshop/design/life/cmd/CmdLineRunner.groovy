@@ -1,5 +1,6 @@
 package cz.vondr.workshop.design.life.cmd
 
+import cz.vondr.workshop.design.life.command.CommandProcessor
 import cz.vondr.workshop.design.life.parser.PersonsParser
 
 class CmdLineRunner {
@@ -25,8 +26,7 @@ class CmdLineRunner {
         println "Enter commands:"
         String commandString
         while (!"done".equalsIgnoreCase(commandString = input.readLine())) {
-            
-            println "Entered $commandString"
+            new CommandProcessor(commandString).process()
         }
     }
 
