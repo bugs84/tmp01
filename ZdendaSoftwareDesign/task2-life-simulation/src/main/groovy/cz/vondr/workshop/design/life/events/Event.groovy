@@ -5,12 +5,19 @@ import cz.vondr.workshop.design.life.persons.Person
 class Event {
     EventType eventType
 
-
-
     Set<Person> interestedPersons = [] as Set
 
     void addInterestedPerson(Person person) {
-        interestedPersons.add(person)
+        interestedPersons << person
     }
+
+    void eventOccurred(Person subjectOfEvent) {
+        interestedPersons.each { interested ->
+            if (interested != subjectOfEvent) {
+                eventType.handleEvent(interested, subjectOfEvent)
+            }
+        }
+    }
+
 
 }

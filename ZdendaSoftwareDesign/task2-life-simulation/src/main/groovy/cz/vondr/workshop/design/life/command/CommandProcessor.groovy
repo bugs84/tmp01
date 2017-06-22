@@ -1,5 +1,8 @@
 package cz.vondr.workshop.design.life.command
 
+import cz.vondr.workshop.design.life.Context
+import cz.vondr.workshop.design.life.events.EventType
+
 class CommandProcessor {
     final String commandString
 
@@ -19,7 +22,7 @@ class CommandProcessor {
     private void createCommand() {
         def commands = [
                 new InterestCommand(commandString),
-                new OccuredCommand(commandString)
+                new OccurredCommand(commandString)
         ]
         command = commands.find { it.isValid() }
 
@@ -45,9 +48,8 @@ abstract class Command {
     abstract void execute()
 }
 
+//  Alice->wedding
 class InterestCommand extends Command {
-
-
 
     InterestCommand(String commandString) {
         super(commandString)
@@ -60,14 +62,20 @@ class InterestCommand extends Command {
 
     @Override
     void execute() {
-//        parseCommand()
-        println "Alice is interested in wedding"
+        def (personName, eventName) = commandString.tokenize( '->' )
+        println "$personName is interested in $eventName"
+
+        def eventType= EventType.fromString(eventName)
+        def event = Context.instance.getEventByType(eventType)
+        def person = Context.instance.getPerson(personName)
+
+        event.addInterestedPerson person
     }
 }
 
-class OccuredCommand extends Command {
+class OccurredCommand extends Command {
 
-    OccuredCommand(String commandString) {
+    OccurredCommand(String commandString) {
         super(commandString)
     }
 
@@ -78,6 +86,12 @@ class OccuredCommand extends Command {
 
     @Override
     void execute() {
+        def (personName, eventName) = commandString.tokenize( ':' )
+        def eventType= EventType.fromString(eventName)
+        def event = Context.instance.getEventByType(eventType)
+        def person = Context.instance.getPerson(personName)
 
+        event.eventOccurred(person)
     }
+
 }

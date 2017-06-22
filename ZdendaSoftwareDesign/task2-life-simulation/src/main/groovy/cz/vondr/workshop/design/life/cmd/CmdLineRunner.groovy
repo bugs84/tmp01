@@ -11,7 +11,7 @@ class CmdLineRunner {
         this.input = input.newReader()
     }
 
-    private void start() {
+    void start() {
         askForPersons()
         askForCommands()
     }
